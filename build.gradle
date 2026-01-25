@@ -20,9 +20,20 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-batch'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    runtimeOnly 'com.h2database:h2'
+
+    //  Spring Batch의 Job 실행 기능과 Spring Integration의 메시징 기능을 연결하는 브릿지 역할
+    implementation 'org.springframework.batch:spring-batch-integration'
+
+    //  RabbitMQ 연동을 위한 자동구성과 RabbitTemplate, ConnectionFactory 등 핵심 컴포넌트들을 제공
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+    //  Spring Integration에서 AMQP 프로토콜 기반 메시징(RabbitMQ)을 사용할 수 있게 하는 어댑터
+    implementation 'org.springframework.integration:spring-integration-amqp'
+
+    //  runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.batch:spring-batch-test'
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     implementation 'org.projectlombok:lombok'

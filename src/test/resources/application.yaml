@@ -13,24 +13,6 @@ spring:
       mode: always
       data-locations: classpath:batch-cleanup.sql
 
-  batch:
-    job:
-      enabled: false
-
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: kill-9
-
-rabbitmq:
-  queue:
-    job-requests: job-requests-queue
-  exchange:
-    job-requests: job-requests-exchange
-  routing-key:
-    job-requests: job.launch
-
 logging:
   level:
     org.springframework.batch.item.database: DEBUG

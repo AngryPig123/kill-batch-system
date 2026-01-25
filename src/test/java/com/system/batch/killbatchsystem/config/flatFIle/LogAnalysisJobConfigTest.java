@@ -1,5 +1,6 @@
 package com.system.batch.killbatchsystem.config.flatFIle;
 
+import com.system.batch.killbatchsystem.config.BatchTestAbstractClass;
 import org.junit.jupiter.api.Test;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.Job;
@@ -28,7 +29,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
 @SpringBatchTest
-class LogAnalysisJobConfigTest {
+class LogAnalysisJobConfigTest extends BatchTestAbstractClass {
 
     @Autowired
     private JobLauncher jobLauncher;

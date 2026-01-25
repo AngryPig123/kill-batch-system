@@ -1,5 +1,6 @@
 package com.system.batch.killbatchsystem.config.jsonFile;
 
+import com.system.batch.killbatchsystem.config.BatchTestAbstractClass;
 import org.junit.jupiter.api.Test;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.Job;
@@ -13,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * packageName    : com.system.batch.killbatchsystem.config.jsonFile
@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @SpringBatchTest
-class SystemDeathJobConfigTest {
+class SystemDeathJobConfigTest extends BatchTestAbstractClass {
 
     @Autowired
     private JobLauncher jobLauncher;

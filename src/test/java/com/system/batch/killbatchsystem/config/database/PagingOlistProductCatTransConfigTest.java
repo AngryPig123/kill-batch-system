@@ -1,12 +1,11 @@
-package com.system.batch.killbatchsystem.config.flatFIle;
+package com.system.batch.killbatchsystem.config.database;
 
 import com.system.batch.killbatchsystem.config.BatchTestAbstractClass;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
-import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.configuration.JobRegistry;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.test.context.SpringBatchTest;
@@ -16,8 +15,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 /**
- * packageName    : com.system.batch.killbatchsystem.config
- * fileName       : DeathNoteWriteJobConfigTest
+ * packageName    : com.system.batch.killbatchsystem.config.database
+ * fileName       : PagingOlistProductCatTransConfigTest
  * author         : AngryPig123
  * date           : 26. 1. 11.
  * description    :
@@ -29,7 +28,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest
 @SpringBatchTest
-class DeathNoteWriteJobConfigTest extends BatchTestAbstractClass {
+class PagingOlistProductCatTransConfigTest extends BatchTestAbstractClass {
 
     @Autowired
     private JobLauncher jobLauncher;
@@ -38,15 +37,11 @@ class DeathNoteWriteJobConfigTest extends BatchTestAbstractClass {
     private JobRegistry jobRegistry;
 
     @Test
-    @Disabled
     void 실행() throws Exception {
-        Job job = jobRegistry.getJob("deathNoteWriteJob");
-        String path = "/Users/macair/Documents/side_project/killBatchSystem/src/test/resources/file/death_notes.csv";
+        Job job = jobRegistry.getJob("pagingOlistProductCatTransJob");
         JobExecution execution = jobLauncher.run(
                 job,
-                new JobParametersBuilder()
-                        .addString("inputFile", path)
-                        .toJobParameters()
+                new JobParameters()
         );
         assertThat(execution.getStatus())
                 .isEqualTo(BatchStatus.COMPLETED);
